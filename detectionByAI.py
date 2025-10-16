@@ -5,7 +5,7 @@ from datetime import datetime
 
 st.set_page_config(
     page_title="Cambodia Health AI",
-    page_icon="🏥",
+    page_icon="Cambodia Health Innovations Logo - Medical Cross and Circuit.png",
     layout="wide"
 )
 
@@ -25,23 +25,24 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.markdown('<p class="big-font">🏥 Cambodia Health AI Assistant</p>', unsafe_allow_html=True)
+st.markdown('<p class="big-font"> Cambodia Health AI Assistant</p>', unsafe_allow_html=True)
 st.markdown("### Powered by Artificial Intelligence | MoEYS x CADT Competition 2025")
 
 language = st.sidebar.selectbox(
     "Language / ភាសា",
     ["English", "ខ្មែរ (Khmer)"]
 )
+  
 
 st.sidebar.markdown("---")
-st.sidebar.title("📋 Navigation")
+st.sidebar.title(" Navigation")
 page = st.sidebar.radio(
     "Choose a tool:",
-    ["🏠 Home", "🤒 Symptom Checker", "💉 Disease Risk Predictor", "📊 Health Analytics", "ℹ️ About"]
+    [" Home", " Symptom Checker", " Disease Risk Predictor", " Health Analytics", " About"]
 )
 
 #homepage
-if page == "🏠 Home":
+if page == " Home":
     col1, col2 = st.columns(2)
     
     with col1:
@@ -52,29 +53,27 @@ if page == "🏠 Home":
         gap between urban and rural areas.
         """)
         
-        st.markdown("### 🎯 Our Solutions:")
-        st.write("✅ AI Symptom Checker")
-        st.write("✅ Disease Risk Prediction")
-        st.write("✅ Health Data Analytics")
-        st.write("✅ Multilingual Support (English/Khmer)")
+        st.markdown("### Our Solutions:")
+        st.write(" AI Symptom Checker")
+        st.write(" Disease Risk Prediction")
+        st.write(" Health Data Analytics")
+        st.write(" Multilingual Support (English/Khmer)")
         
     with col2:
         st.image("Cambodia Health Innovations Logo - Medical Cross and Circuit.png", 
                  caption="Making Healthcare Accessible for All")
         
-        # Statistics
-        st.markdown("### 📊 Impact Metrics")
+        st.markdown("### Impact Metrics")
         metric_col1, metric_col2, metric_col3 = st.columns(3)
         metric_col1.metric("Users Helped", "1,234", "+156")
         metric_col2.metric("Assessments", "5,678", "+234")
         metric_col3.metric("Accuracy", "94%", "+2%")
 
-# SYMPTOM CHECKER PAGE
-elif page == "🤒 Symptom Checker":
-    st.title("🤒 AI Symptom Checker")
+elif page == " Symptom Checker":
+    st.title(" AI Symptom Checker")
     st.write("Select your symptoms and get an AI-powered preliminary assessment")
     
-    st.warning("⚠️ DISCLAIMER: This is NOT a medical diagnosis. Always consult a doctor.")
+    st.warning(" DISCLAIMER: This is NOT a medical diagnosis. Always consult a doctor.")
     
     col1, col2 = st.columns(2)
     
@@ -82,19 +81,19 @@ elif page == "🤒 Symptom Checker":
         st.markdown("### Select Your Symptoms:")
         
         symptoms = {
-            'High Fever': st.checkbox('🌡️ High Fever / គ្រុនក្តៅខ្លាំង'),
-            'Cough': st.checkbox('😷 Cough / ក្អក'),
-            'Headache': st.checkbox('🤕 Headache / ឈឺក្បាល'),
-            'Fatigue': st.checkbox('😴 Fatigue / ហត់នឿយ'),
-            'Diarrhea': st.checkbox('🚽 Diarrhea / រាគ'),
-            'Vomiting': st.checkbox('🤮 Vomiting / ក្អួត'),
-            'Body Ache': st.checkbox('💪 Body Ache / ឈឺខ្លួន'),
-            'Rash': st.checkbox('🔴 Skin Rash / រមាស់ស្បែក'),
+            'High Fever': st.checkbox(' High Fever / គ្រុនក្តៅខ្លាំង'),
+            'Cough': st.checkbox(' Cough / ក្អក'),
+            'Headache': st.checkbox(' Headache / ឈឺក្បាល'),
+            'Fatigue': st.checkbox(' Fatigue / ហត់នឿយ'),
+            'Diarrhea': st.checkbox(' Diarrhea / រាគ'),
+            'Vomiting': st.checkbox(' Vomiting / ក្អួត'),
+            'Body Ache': st.checkbox(' Body Ache / ឈឺខ្លួន'),
+            'Rash': st.checkbox(' Skin Rash / រមាស់ស្បែក'),
         }
         
         age = st.number_input("Age / អាយុ", min_value=0, max_value=120, value=30)
         
-        if st.button("🔍 Analyze Symptoms", type="primary"):
+        if st.button(" Analyze Symptoms", type="primary"):
             selected = [k for k, v in symptoms.items() if v]
             
             if len(selected) == 0:
@@ -103,20 +102,25 @@ elif page == "🤒 Symptom Checker":
                 with col2:
                     st.markdown("### 📋 Analysis Results:")
                     
-                    # Simple rule-based analysis (you'd use ML model here)
                     if symptoms['High Fever'] and symptoms['Body Ache']:
-                        st.error("🚨 Possible: Influenza / Dengue")
+                        st.error(" Possible: Influenza / Dengue")
+                        st.error(" Possible: គ្រុនផ្តាសសាយ")
                         severity = "HIGH"
+                        severity = "កម្រិតខ្ពស់ ធ្ងន់ធ្ងរ"
                         advice = "See a doctor immediately. Monitor temperature."
                         advice_km = "ជួបវេជ្ជបណ្ឌិតភ្លាម។ ត្រួតពិនិត្យសីតុណ្ហភាព។"
                     elif symptoms['Diarrhea'] and symptoms['Vomiting']:
-                        st.warning("⚠️ Possible: Gastroenteritis")
+                        st.warning(" Possible: Gastroenteritis")
+                        st.warning(" Possible: រលាកពោះវៀន")
                         severity = "MEDIUM"
+                        severity = "កម្រិតមធ្យម"
                         advice = "Stay hydrated. See doctor if persists >2 days."
                         advice_km = "ផឹកទឹកច្រើន។ ជួបវេជ្ជបណ្ឌិតប្រសិនបើរយៈពេលលើសពី២ថ្ងៃ។"
                     else:
-                        st.info("ℹ️ Possible: Common Cold")
+                        st.info(" Possible: Common Cold")
+                        st.info(" Possible: ផ្តាសាយធម្មតា")
                         severity = "LOW"
+                        severity = "កម្រិតស្រាល"
                         advice = "Rest, drink fluids, monitor symptoms."
                         advice_km = "សម្រាក ផឹកទឹកច្រើន ត្រួតពិនិត្យរោគសញ្ញា។"
                     
@@ -127,23 +131,21 @@ elif page == "🤒 Symptom Checker":
                     st.markdown("**ការណែនាំ (KM):**")
                     st.info(advice_km)
                     
-                    # Emergency contacts
-                    with st.expander("🚨 Emergency Contacts"):
+                    with st.expander(" Emergency Contacts"):
                         st.write("Emergency: **119**")
                         st.write("Calmette Hospital: **023 426 948**")
                         st.write("Khmer-Soviet Hospital: **023 991 200**")
 
-# DISEASE RISK PREDICTOR PAGE
-elif page == "💉 Disease Risk Predictor":
-    st.title("💉 Disease Risk Predictor")
+elif page == " Disease Risk Predictor":
+    st.title(" Disease Risk Predictor")
     st.write("Get AI-powered risk assessment for diabetes and heart disease")
     
     predictor_type = st.radio(
         "Select Prediction Type:",
-        ["🩺 Diabetes Risk", "❤️ Heart Disease Risk"]
+        [" Diabetes Risk", " Heart Disease Risk"]
     )
     
-    if predictor_type == "🩺 Diabetes Risk":
+    if predictor_type == " Diabetes Risk":
         st.markdown("### Diabetes Risk Assessment")
         
         col1, col2 = st.columns(2)
@@ -158,7 +160,6 @@ elif page == "💉 Disease Risk Predictor":
             family_history = st.selectbox("Family History of Diabetes", ["No", "Yes"])
             
         if st.button("Calculate Risk", type="primary"):
-            # Simple risk calculation (you'd use ML model here)
             risk_score = 0
             if age > 45: risk_score += 20
             if glucose > 140: risk_score += 30
@@ -167,9 +168,8 @@ elif page == "💉 Disease Risk Predictor":
             if family_history == "Yes": risk_score += 10
             
             st.markdown("---")
-            st.markdown("### 📊 Risk Assessment Result")
+            st.markdown("###  Risk Assessment Result")
             
-            # Progress bar
             st.progress(min(risk_score, 100) / 100)
             
             col1, col2, col3 = st.columns(3)
@@ -177,26 +177,24 @@ elif page == "💉 Disease Risk Predictor":
             
             if risk_score < 30:
                 col2.metric("Risk Level", "LOW", delta="-20%", delta_color="inverse")
-                st.success("✅ Low diabetes risk. Maintain healthy lifestyle!")
+                st.success(" Low diabetes risk. Maintain healthy lifestyle!")
             elif risk_score < 60:
                 col2.metric("Risk Level", "MEDIUM", delta="0%")
-                st.warning("⚠️ Medium risk. Consult doctor and improve diet/exercise.")
+                st.warning(" Medium risk. Consult doctor and improve diet/exercise.")
             else:
                 col2.metric("Risk Level", "HIGH", delta="+30%", delta_color="normal")
-                st.error("🚨 High risk. Schedule doctor appointment immediately!")
+                st.error(" High risk. Schedule doctor appointment immediately!")
             
             col3.metric("Confidence", "89%")
     
-    else:  # Heart Disease
+    else:  
         st.markdown("### Heart Disease Risk Assessment")
         st.info("Coming soon! Under development.")
 
-# HEALTH ANALYTICS PAGE
-elif page == "📊 Health Analytics":
-    st.title("📊 Health Data Analytics")
+elif page == " Health Analytics":
+    st.title(" Health Data Analytics")
     st.write("Visualize health trends and patterns in Cambodia")
     
-    # Generate sample data
     dates = pd.date_range(start='2025-01-01', end='2025-10-14', freq='D')
     data = pd.DataFrame({
         'Date': dates,
@@ -205,62 +203,56 @@ elif page == "📊 Health Analytics":
         'Heart Disease Cases': np.random.randint(3, 15, len(dates))
     })
     
-    # Chart 1: Line chart
-    st.markdown("### 📈 Daily Health Consultations")
+    st.markdown("### Daily Health Consultations")
     st.line_chart(data.set_index('Date')['Consultations'])
     
-    # Chart 2: Area chart
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("### 🩺 Disease Cases Over Time")
         st.area_chart(data.set_index('Date')[['Diabetes Cases', 'Heart Disease Cases']])
     
     with col2:
-        st.markdown("### 📊 Summary Statistics")
+        st.markdown("### Summary Statistics")
         st.dataframe(data[['Consultations', 'Diabetes Cases', 'Heart Disease Cases']].describe())
 
-# ABOUT PAGE
-elif page == "ℹ️ About":
-    st.title("ℹ️ About This Project")
+elif page == " About":
+    st.title(" About This Project")
     
     st.markdown("""
     ## Cambodia Health AI Assistant
     
-    ### 🎯 Mission
+    ###  Mission
     To make healthcare more accessible to all Cambodians through AI technology.
     
-    ### 👥 Team
-    - **Project Lead:** Senghab Cheng
+    ### Team
+    - **Project Lead:** Senghab Cheng, Chhayhour Ly, Kimseak Sok, Faris Fy
     - **University:** Paragon International University
     - **Competition:** AI in Education Competition 2025
     - **Organizers:** MoEYS & CADT
     
-    ### 🛠️ Technology Stack
+    ### Technology Stack
     - **AI/ML:** Python, TensorFlow, Scikit-learn
     - **Web App:** Streamlit
     - **Data:** Kaggle Medical Datasets
-    - **Deployment:** Cloud-based (AWS/Heroku)
+    - **Deployment:** Streamlit
     
-    ### 📞 Contact
+    ### Contact
     - **Email:** scheng@paragoniu.edu.kh
-    - **Phone:** +855 92 868 715
+    - **Phone:** +855 92 *** *15
     - **GitHub:** github.com/Senghab-Cheng
     
-    ### ⚠️ Disclaimer
+    ### Disclaimer
     This application is for educational and informational purposes only. 
     It is NOT a substitute for professional medical advice, diagnosis, or treatment. 
     Always seek the advice of your physician or other qualified health provider.
     """)
     
-    # Download report button
-    if st.button("📥 Download Project Report"):
+    if st.button(" Download Project Report"):
         st.success("Report download started! (Demo)")
 
-# Footer
 st.markdown("---")
 st.markdown("""
     <div style='text-align: center'>
-        <p>🏥 Cambodia Health AI | MoEYS x CADT Competition 2025</p>
-        <p>Made with ❤️ for Cambodia | © 2025 All Rights Reserved</p>
+        <p> Cambodia Health AI | MoEYS x CADT Competition 2025</p>
     </div>
 """, unsafe_allow_html=True)
